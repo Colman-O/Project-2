@@ -1,3 +1,4 @@
+// This is the node class from lecture. The author of this class is Prof. Dion.
 #ifndef NODE_H
 #define NODE_H
 
