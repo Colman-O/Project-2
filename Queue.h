@@ -39,8 +39,8 @@ public:
         cout << "No memory leaks!" << endl;
     }
 
-    // push (add a value to the Queue)
-    void push(Object item) {
+    // enqueue (add a value to the Queue)
+    void enqueue(Object item) {
         // Store the item in a Node in heap memory
         Node<Object>* newNodePtr = new Node<Object>(item);
         // Have the new Node point to null ptr
@@ -50,10 +50,10 @@ public:
         back = item;
     }
 
-    // pop (remove a value from the Queue)
-    // Returns the value being popped
-    Object pop() {
-        // Check that there is a Node to pop
+    // dequeued (remove a value from the Queue)
+    // Returns the value being dequeued (wow what a word)
+    Object dequeue() {
+        // Check that there is a Node to dequeue
         if (front == nullptr) {
             // The Queue is empty
             return Object();
@@ -66,7 +66,7 @@ public:
         front = front->getNext();
         // Delete the Node from heap memory
         delete frontCopy;
-        // Return the value being popped
+        // Return the value being dequeued
         return item;
     }
 
