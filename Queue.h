@@ -34,7 +34,7 @@ public:
     ~Queue() {
         // Make sure no heap allocation
         while (front != nullptr) {
-            pop();
+            dequeue();
         }
         cout << "No memory leaks!" << endl;
     }
@@ -46,8 +46,14 @@ public:
         // Have the new Node point to null ptr
         newNodePtr->setNext(nullptr);
         // The new Node becomes back
-        back->setNext(item);
-        back = item;
+        if (back != nullptr) {
+            back->setNext(newNodePtr);
+        }
+        back = newNodePtr;
+        // Set front if queue is empty
+        if (front == nullptr) {
+            front = newNodePtr;
+        }
     }
 
     // dequeued (remove a value from the Queue)
